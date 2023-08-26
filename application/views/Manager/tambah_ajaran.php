@@ -48,7 +48,7 @@
             </td>
           </tr> 
 
-        <button type="submit" class="btn btn-success" style="margin-left: 4px;"><i class="fa fa-save"></i> Simpan</button>
+        <button type="submit" class="btn btn-success" style="margin-left: 4px;"><i class="fas fa-save"></i> Simpan</button>
       </form>
     </div>
 </div>

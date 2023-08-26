@@ -74,17 +74,23 @@
     <script>
         // Call the dataTables jQuery plugin
 $(document).ready(function() {
-  $('#dataTable').DataTable(
+  $('#dataTable1').DataTable(
     {
       'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
+      'lengthChange': true,
+      'searching'   : true,
       'ordering'    : true,
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : true
     }
   );
   
+});
+</script>
+    <script>
+        // Call the dataTables jQuery plugin
+$(document).ready(function() {
+  $('#dataTable').DataTable();
 });
 </script>
 <script>

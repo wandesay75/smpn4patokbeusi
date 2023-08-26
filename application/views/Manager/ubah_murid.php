@@ -40,9 +40,9 @@
                 <label for="nama_kelas" class="text-info">Kelas <span class="text-info">:</span></label>
                 <select name="nama_kelas" class="form-control form-control-user" required>
                   <option value="" disabled>--Pilih Kelas--</option>
-                  <?php foreach($kelas as $kls)  { ?>
-                  <option value="<?= $kls['nama_kelas'];?>" <?php echo $row->kelas == $kls['nama_kelas'] ? 'selected' : '' ?>><?= $kls['nama_kelas'];?></option>
-                  <?php } ?>
+                  <?php foreach($kelas as $kls)  : ?>
+                  <option value="<?= $kls['nama_kelas'];?>" <?php echo $row->nama_kelas == $kls['nama_kelas'] ? 'selected' : '' ?>><?= $kls['nama_kelas'];?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
             </td>

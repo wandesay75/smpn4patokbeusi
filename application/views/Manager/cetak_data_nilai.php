@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cetak Data | SMPN 4 Patokbeusi</title>
+    <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/img/logo_sekolah.ico'); ?>">
+    <!-- Custom fonts for this template-->
+    <link href="<?php echo base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="<?php echo base_url('assets/') ?>css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
 <div class="container-fluid">
 <div class="card shadow mb-4">
 <div class="card-body">
@@ -23,24 +49,6 @@
         </table>
     </center>
     <br>
-    <a href="<?php echo base_url('Manager/Nilai'); ?>" class="btn btn-primary btn-icon-split mb-3">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-arrow-left"></i>
-                                            </span>
-                                            <span class="text">Kembali</span>
-    </a> <br>
-    <a href="<?php echo base_url('Manager/Nilai/tambahDataNilai/'.$nis.'/'.$id_tahun); ?>" target="_blank" class="btn btn-secondary btn-icon-split mb-3">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                            <span class="text">Tambah Data Nilai</span>
-    </a>
-    <a href="<?php echo base_url('Manager/Nilai/cetakNilai/'.$nis.'/'.$id_tahun); ?>" target="_blank" class="btn btn-success btn-icon-split mb-3">
-                                            <span class="icon text-white-50">
-                                                <i class="fas fa-print"></i>
-                                            </span>
-                                            <span class="text">Cetak</span>
-    </a>
 
 <table class="table table-bordered table-hover table-striped" id="dataTable1" width="100%" cellspacing="0">
     <thead>
@@ -52,7 +60,6 @@
             <th>Nilai UTS</th>
             <th>Nilai UAS</th>
             <th>Nilai Akhir</th>
-            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -75,11 +82,7 @@
         </td>
         <td>
             <?php echo $nilai->total_nilai; ?>
-        </td>
-        <td><a href="<?php echo base_url('Manager/Nilai/update/'.$nilai->id_nilai) ?>" target="_blank"><div class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></div></a>
-        <?= anchor('Manager/Nilai/hapus/' .$nilai->id_nilai, '<div class="btn btn-sm btn-danger" onclick="return confirm(`Apakah Anda Yakin Ingin Menghapusnya ?`)"><i class="fas fa-trash"></i></div>') ?>
-            </td>
-            
+        </td>            
     </tr>
     
     <?php endforeach; ?>
@@ -89,3 +92,11 @@
 </div>
 </div>
 </div>
+
+<script>
+        // window.open()
+        window.print()
+</script>
+
+    </body>
+</html>
