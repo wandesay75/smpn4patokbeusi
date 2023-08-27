@@ -25,7 +25,7 @@
 <body>
 
 <div class="container-fluid">
-<div class="card shadow mb-4">
+<div class="card-body">
 <div class="card-body">
     <center>
         <legend class="mt-3"><strong>Data Siswa</strong></legend>
