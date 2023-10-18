@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 27, 2023 at 06:27 AM
+-- Generation Time: Oct 19, 2023 at 01:42 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `data_absen` (
   `id_absen` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
+  `id_tahun` int(11) NOT NULL,
   `nama_kelas` varchar(11) NOT NULL,
   `nama_guru` varchar(50) NOT NULL,
   `matapelajaran` varchar(50) NOT NULL,
@@ -40,13 +40,9 @@ CREATE TABLE `data_absen` (
 -- Dumping data for table `data_absen`
 --
 
-INSERT INTO `data_absen` (`id_absen`, `id_user`, `nama_kelas`, `nama_guru`, `matapelajaran`, `waktu_absen`) VALUES
-(1, 11, '9B', 'Raihan Ramadhan', 'Bahasa Sunda', '2023-08-13 15:42:51'),
-(2, 11, '8A', 'Yoga Prasetyo', 'PPKN', '2023-08-13 22:40:03'),
-(3, 11, '9B', 'Yusup Supriatna', 'PJOK', '2023-08-14 10:39:54'),
-(4, 11, '7A', 'Ahmad Maulana', 'Bahasa Inggris', '2023-08-14 10:47:23'),
-(5, 11, '7A', 'Ahmad Maulana', 'BTQ', '2023-08-14 10:47:55'),
-(6, 11, '9A', 'Ahmad Maulana', 'Bahasa Inggris', '2023-08-14 17:09:40');
+INSERT INTO `data_absen` (`id_absen`, `id_tahun`, `nama_kelas`, `nama_guru`, `matapelajaran`, `waktu_absen`) VALUES
+(61, 1, '7A', 'Yoga Prasetyo', 'Matematika', '2023-09-26 09:17:08'),
+(62, 1, '7A', 'Yoga Prasetyo', 'Matematika', '2023-09-26 09:23:19');
 
 -- --------------------------------------------------------
 
@@ -91,10 +87,19 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `wali_kelas`) VALUES
-(1, '7A', 'Yoga Prasetyo'),
-(2, '8A', 'Raihan Ramadhan'),
-(3, '9B', 'Yusup Supriatna'),
-(8, '9A', 'Yoga Prasetyo');
+(9, '7A', 'Yoga Prasetyo'),
+(10, '7B', 'Yoga Prasetyo'),
+(11, '7C', 'Yoga Prasetyo'),
+(12, '7D', 'Yoga Prasetyo'),
+(13, '8A', 'Ahmad Maulana'),
+(14, '8B', 'Ahmad Maulana'),
+(15, '8C', 'Ahmad Maulana'),
+(16, '8D', 'Ahmad Maulana'),
+(17, '9A', 'Yusup Supriatna'),
+(18, '9B', 'Yusup Supriatna'),
+(19, '9C', 'Yusup Supriatna'),
+(20, '9D', 'Raihan Ramadhan'),
+(21, '9E', 'Raihan Ramadhan');
 
 -- --------------------------------------------------------
 
@@ -135,6 +140,7 @@ INSERT INTO `matapelajaran` (`id_mapel`, `kd_mapel`, `nama_mapel`) VALUES
 
 CREATE TABLE `murid` (
   `id_murid` int(11) NOT NULL,
+  `id_tahun` int(11) NOT NULL,
   `nis` int(15) NOT NULL,
   `nama_murid` varchar(50) NOT NULL,
   `nama_kelas` varchar(25) NOT NULL,
@@ -149,19 +155,12 @@ CREATE TABLE `murid` (
 -- Dumping data for table `murid`
 --
 
-INSERT INTO `murid` (`id_murid`, `nis`, `nama_murid`, `nama_kelas`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `no_telepon`, `foto`) VALUES
-(6, 12210247, 'Alvin Austin', '9A', 'Jakarta', '2023-08-19', 'Laki-Laki', '081294684656', '800px-Gubernur_Anies-removebg-preview8.png'),
-(7, 12210740, 'Yusup Supriatna', '8A', 'Karawang', '2023-08-11', 'Laki-Laki', '081294684656', '957020.jpg'),
-(8, 420666, 'Lillith', '9B', 'Hellfire', '2023-08-13', 'Laki-Laki', '081294684656', '106060153_879590532543647_7291897530209099100_n.jpg'),
-(9, 14141, 'Mubaroq Al Mushab', '8A', 'Karawang', '2023-08-13', 'Laki-Laki', '081294684656', 'default.png'),
-(10, 80808, 'jaja', '9B', 'Karawang', '2023-08-14', 'Laki-Laki', '081294684656', 'default.png'),
-(11, 12213, 'Harun', '7A', 'Karawang', '2023-08-14', 'Laki-Laki', '081294684656', 'default.png'),
-(12, 1213213, 'Kasim', '7A', 'Karawang', '2023-08-14', 'Laki-Laki', '081294684656', 'default.png'),
-(13, 12032109, 'Mega', '9A', 'Karawang', '2023-08-14', 'Laki-Laki', '081294684656', 'default.png'),
-(14, 2147483647, 'Faris', '9A', 'Karawang', '2023-08-14', 'Laki-Laki', '081294684656', 'default.png'),
-(15, 120390139, 'Acun', '9A', 'Karawang', '2023-08-14', 'Laki-Laki', '081294684656', 'default.png'),
-(16, 2147483647, 'oswald', '9A', 'Karawang', '2023-08-14', 'Laki-Laki', '081294684656', 'default.png'),
-(17, 2147483647, 'Fiza', '9A', 'Karawang', '2023-08-14', 'Laki-Laki', '081294684656', 'default.png');
+INSERT INTO `murid` (`id_murid`, `id_tahun`, `nis`, `nama_murid`, `nama_kelas`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `no_telepon`, `foto`) VALUES
+(45, 1, 12210740, 'Mubaroq Al Mushab', '7A', 'Jakarta', '2023-09-19', 'Laki-Laki', '081294684656', 'default.png'),
+(46, 2, 12210104, 'Harun Kasim', '7A', 'Jakarta', '2023-09-23', 'Laki-Laki', '081294684656', 'default.png'),
+(47, 1, 122101231, 'Yusup Supriatna', '7A', 'Karawang', '2023-09-23', 'Laki-Laki', '081294684656', 'default.png'),
+(48, 1, 420666, 'Ncuyy', '7B', 'Karawang', '2023-09-25', 'Laki-Laki', '081294684656', 'default.png'),
+(49, 1, 12210247, 'Alvin Austin', '7A', 'Jakarta', '2023-10-05', 'Laki-Laki', '081294684656', 'default.png');
 
 -- --------------------------------------------------------
 
@@ -186,11 +185,8 @@ CREATE TABLE `nilai` (
 --
 
 INSERT INTO `nilai` (`id_nilai`, `id_tahun`, `nis`, `nama_murid`, `kd_mapel`, `nilai_tugas`, `nilai_uts`, `nilai_uas`, `total_nilai`) VALUES
-(6, 1, '12210247', 'Alvin Austin', 205, 100, 95, 85, 93),
-(7, 1, '12210740', 'Yusup Supriatna', 205, 100, 85, 70, 85),
-(9, 1, '12210247', 'Alvin Austin', 206, 75, 95, 87, 86),
-(10, 1, '12210740', 'Yusup Supriatna', 206, 85, 78, 68, 77),
-(12, 1, '12210247', 'Alvin Austin', 401, 100, 95, 85, 93);
+(21, 1, '12210740', 'Mubaroq Al Mushab', 205, 100, 75, 85, 87),
+(22, 1, '12210247', 'Alvin Austin', 205, 87, 95, 100, 94);
 
 -- --------------------------------------------------------
 
@@ -200,6 +196,8 @@ INSERT INTO `nilai` (`id_nilai`, `id_tahun`, `nis`, `nama_murid`, `kd_mapel`, `n
 
 CREATE TABLE `submit_absen` (
   `id_submit` int(11) NOT NULL,
+  `id_tahun` int(11) NOT NULL,
+  `id_absen` int(11) NOT NULL,
   `id_murid` int(11) NOT NULL,
   `nama_murid` varchar(50) NOT NULL,
   `nama_kelas` varchar(11) NOT NULL,
@@ -210,20 +208,13 @@ CREATE TABLE `submit_absen` (
 -- Dumping data for table `submit_absen`
 --
 
-INSERT INTO `submit_absen` (`id_submit`, `id_murid`, `nama_murid`, `nama_kelas`, `status`) VALUES
-(1, 9, 'Mubaroq Al Mushab', '8A', 'Tanpa Keterangan'),
-(2, 6, 'Alvin Austin', '9B', 'Hadir'),
-(3, 8, 'Lillith', '9B', 'Hadir'),
-(4, 10, 'jaja', '9B', 'Tanpa Keterangan'),
-(5, 12, 'Kasim', '7A', 'Izin'),
-(6, 10, 'jaja', '9B', 'Izin'),
-(7, 7, 'Yusup Supriatna', '8A', 'Hadir'),
-(8, 9, 'Mubaroq Al Mushab', '8A', 'Hadir'),
-(9, 13, 'Mega', '9A', 'Hadir'),
-(10, 14, 'Faris', '9A', 'Tanpa Keterangan'),
-(11, 15, 'Acun', '9A', 'Izin'),
-(12, 16, 'oswald', '9A', 'Hadir'),
-(13, 17, 'Fiza', '9A', 'Hadir');
+INSERT INTO `submit_absen` (`id_submit`, `id_tahun`, `id_absen`, `id_murid`, `nama_murid`, `nama_kelas`, `status`) VALUES
+(36, 1, 45, 45, 'Mubaroq Al Mushab', '7A', 'Hadir'),
+(37, 1, 0, 47, 'Yusup Supriatna', '7A', 'Hadir'),
+(38, 1, 45, 45, 'Mubaroq Al Mushab', '7A', 'Tanpa Keterangan'),
+(39, 1, 46, 47, 'Yusup Supriatna', '7A', 'Tanpa Keterangan'),
+(40, 1, 45, 45, 'Mubaroq Al Mushab', '7A', 'Tanpa Keterangan'),
+(41, 1, 46, 47, 'Yusup Supriatna', '7A', 'Tanpa Keterangan');
 
 -- --------------------------------------------------------
 
@@ -360,7 +351,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `data_absen`
 --
 ALTER TABLE `data_absen`
-  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_absen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `guru`
@@ -372,7 +363,7 @@ ALTER TABLE `guru`
 -- AUTO_INCREMENT for table `kelas`
 --
 ALTER TABLE `kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `matapelajaran`
@@ -384,19 +375,19 @@ ALTER TABLE `matapelajaran`
 -- AUTO_INCREMENT for table `murid`
 --
 ALTER TABLE `murid`
-  MODIFY `id_murid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_murid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `submit_absen`
 --
 ALTER TABLE `submit_absen`
-  MODIFY `id_submit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_submit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `tahun_ajaran`
