@@ -35,7 +35,7 @@ class Auth extends CI_Controller {
 
         if ($type == 'forgot'){
             $this->email->subject('Reset Password');
-            $this->email->message('Klik link ini untuk mereset password anda : <a href="'.base_url().'auth/resetpassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password Anda!</a>');
+            $this->email->message('Klik link ini untuk mereset password anda : <a href="'.base_url().'Auth/resetPassword?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password Anda!</a>');
         }
 
         if ($this->email->send())

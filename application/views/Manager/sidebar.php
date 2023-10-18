@@ -67,13 +67,13 @@
             </div>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item <?php echo $this->uri->segment(2) == 'AbsenMurid' ? 'active' : '' ?>">
                 <a class="nav-link" href="<?php echo base_url('Manager/AbsenMurid'); ?>">
                     <i class="fas fa-fw fa-tv"></i>
                     <span>Presensi Murid</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item <?php echo $this->uri->segment(2) == 'DataAbsen' ? 'active' : '' ?>">
                 <a class="nav-link" href="<?php echo base_url('Manager/DataAbsen'); ?>">
                     <i class="fas fa-fw fa-clipboard-list"></i>
                     <span>Rekap Data Absensi</span></a>

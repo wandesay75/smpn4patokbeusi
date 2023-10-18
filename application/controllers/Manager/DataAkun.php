@@ -26,12 +26,12 @@ class DataAkun extends CI_Controller {
 	{
 		$this->form_validation->set_rules('nama_user', 'Username', 'required|trim');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
-			'is_unique' => 'This email already registered!'
+			'is_unique' => 'Email Ini Sudah Terdaftar!'
 		]);
 		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|max_length[16]|matches[password2]', [
-			'matches' => 'Password are not match!',
-			'min_length' => 'Password too short!',
-			'max_length' => 'Password too long!']);
+			'matches' => 'Katasandi Anda Tidak Cocok!',
+			'min_length' => 'Katasandi Anda Terlalu Pendek! (Minimal 8 Kata)',
+			'max_length' => 'Katasandi Anda Terlalu Panjang! (Maksimal 16 Kata)']);
 		$this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[8]|max_length[16]|matches[password1]');
 		if($this->form_validation->run() == false)
 		{

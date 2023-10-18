@@ -1,4 +1,5 @@
 <div class="container-fluid">
+        <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
 <div class="card shadow mb-4">
 <div class="card-body">
     <center>
@@ -9,7 +10,7 @@
                 <td>&nbsp;: <?= $nis; ?></td>
             </tr>
             <tr>
-                <td><strong>Nama Murid</strong></td>
+                <td><strong>Nama Siswa</strong></td>
                 <td>&nbsp;: <?= $nama_murid; ?></td>
             </tr>
             <tr>
@@ -29,7 +30,7 @@
                                             </span>
                                             <span class="text">Kembali</span>
     </a> <br>
-    <a href="<?php echo base_url('Manager/Nilai/tambahDataNilai/'.$nis.'/'.$id_tahun); ?>" target="_blank" class="btn btn-secondary btn-icon-split mb-3">
+    <a href="<?php echo base_url('Manager/Nilai/tambahDataNilai/'.$nis.'/'.$id_tahun); ?>" class="btn btn-secondary btn-icon-split mb-3">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -41,7 +42,7 @@
                                             </span>
                                             <span class="text">Cetak</span>
     </a>
-
+    <?= $this->session->flashdata('pesan'); ?>
 <table class="table table-bordered table-hover table-striped" id="dataTable1" width="100%" cellspacing="0">
     <thead>
         <tr>
@@ -51,11 +52,11 @@
             <th>Nilai Tugas</th>
             <th>Nilai UTS</th>
             <th>Nilai UAS</th>
-            <th>Nilai Akhir</th>
+            <th>Total Nilai</th>
             <th>Action</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="text-center">
     <?php 
     $no = 1;
     foreach($nilai_data as $nilai) : ?>
@@ -76,7 +77,7 @@
         <td>
             <?php echo $nilai->total_nilai; ?>
         </td>
-        <td><a href="<?php echo base_url('Manager/Nilai/update/'.$nilai->id_nilai) ?>" target="_blank"><div class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></div></a>
+        <td><a href="<?php echo base_url('Manager/Nilai/update/'.$nilai->id_nilai) ?>"><div class="btn btn-sm btn-warning"><i class="fas fa-pencil-alt"></i></div></a>
         <?= anchor('Manager/Nilai/hapus/' .$nilai->id_nilai, '<div class="btn btn-sm btn-danger" onclick="return confirm(`Apakah Anda Yakin Ingin Menghapusnya ?`)"><i class="fas fa-trash"></i></div>') ?>
             </td>
             

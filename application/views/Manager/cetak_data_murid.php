@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Cetak Data Nilai Siswa | SMPN 4 Patokbeusi</title>
+    <title>Cetak Data Siswa Kelas - <?= $nama_kelas; ?> | SMPN 4 Patokbeusi</title>
     <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/img/logo_sekolah.ico'); ?>">
     <!-- Custom fonts for this template-->
     <link href="<?php echo base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,7 +29,6 @@
 </style>
 
 <body>
-
 <div class="container-fluid">
 <div class="card-body">
 <div class="card-body">
@@ -52,70 +51,42 @@
         </div>
     <br>
     <br>
+
     <center>
-        <legend class="mt-3"><strong>Data Siswa</strong></legend>
-        <table>
-            <tr>
-                <td><strong>NIS</strong></td>
-                <td>&nbsp;: <?= $nis; ?></td>
-            </tr>
-            <tr>
-                <td><strong>Nama Murid</strong></td>
-                <td>&nbsp;: <?= $nama_murid; ?></td>
-            </tr>
-            <tr>
-                <td><strong>Kelas</strong></td>
-                <td>&nbsp;: <?= $nama_kelas; ?></td>
-            </tr>
-            <tr>
-                <td><strong>Tahun Ajaran (Semester)</strong></td>
-                <td>&nbsp;: <?= $tahun_ajaran. '&nbsp;('.$semester.')'; ?></td>
-            </tr>
-        </table>
+    <legend class="mt-3"><strong>Data Siswa Kelas - <?= $nama_kelas; ?></strong></legend>
+    <legend><strong>Tahun Ajaran <?= $tahun_ajaran ?> (<?= $semester ?>) </strong></legend>
     </center>
+
     <br>
     <br>
-<table class="table table-bordered table-hover table-striped" id="dataTable1" width="100%" cellspacing="0">
-    <thead>
-        <tr>
-            <th>No.</th>
-            <th>Nama Matapelajaran</th>
-            <th>Nilai Tugas</th>
-            <th>Nilai UTS</th>
-            <th>Nilai UAS</th>
-            <th>Total Nilai</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php 
-    $no = 1;
-    foreach($nilai_data as $nilai) : ?>
-    
-    <tr>
-        <td width="20px"><?php echo $no++ ?></td>
-        <td><?php echo $nilai->nama_mapel; ?></td>
-        <td>
-            <?php echo $nilai->nilai_tugas; ?>
-        </td>
-        <td>
-            <?php echo $nilai->nilai_uts; ?>
-        </td>
-        <td>
-            <?php echo $nilai->nilai_uas; ?>
-        </td>
-        <td>
-            <?php echo $nilai->total_nilai; ?>
-        </td>            
-    </tr>
-    
-    <?php endforeach; ?>
-    </tbody>
-</table>
 
-</div>
-</div>
-</div>
-
+<table class="table table-bordered table-striped table-hover text-center" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>NIS</th>
+                                            <th>Nama Murid</th>
+                                            <th>Kelas</th>
+                                            <th>Tempat Tanggal Lahir</th>
+                                            <th>Jenis Kelamin</th>
+                                            <th>No. Telepon</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $id_murid = 1; foreach ($data_murid as $murid) :?>
+                                            <tr>
+                                                <td><?= $id_murid++ ?></td>
+                                                <td><?= $murid->nis ?></td>
+                                                <td><?= $murid->nama_murid ?></td>
+                                                <td><?= $murid->nama_kelas; ?></td>
+                                                <td><?php echo $murid->tempat_lahir;  echo ' , '; echo $murid->tanggal_lahir;   ?></td>
+                                                <td><?= $murid->jenis_kelamin; ?></td>
+                                                <td><?= $murid->no_telepon; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+    
 <script>
         // window.open()
         window.print()

@@ -73,7 +73,12 @@
     <i class="fas fa-save"></i>
     Simpan
 </button>
-<?= anchor('Manager/Nilai/CariNilai/', '<div class="btn btn-warning"> <i class="fas fa-undo"></i> Kembali </div>') ?>
+<a href="<?php echo base_url('Manager/Nilai/DataNilai/'. $nis. '/' . $id_tahun); ?>" class="btn btn-warning">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-undo"></i>
+                                                </span>
+                                                <span class="text">Kembali</span>
+</a>
 </form>
 </div>
 </div>

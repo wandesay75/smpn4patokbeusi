@@ -8,12 +8,16 @@
         <div class="card-body">
             <?= $this->session->flashdata('pesan'); ?>
 
-            <form action="<?php echo base_url('Manager/Nilai/CariNilai'); ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo base_url('Manager/DataMurid/Murid'); ?>" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <label for="nis">Nomor Induk Siswa</label>
-                    <input type="text" name="nis" placeholder="Masukkan Nomor Induk Siswa" class="form-control w-50">
-                    <?= form_error('nis', '<div class="text-danger small ml-2">', '</div>'); ?>
+                    <label for="nama_kelas">Kelas</label>
+                    <select name="nama_kelas" class="form-control form-control-user w-50" required>
+                        <option value="" disabled>--Pilih Kelas--</option>
+                        <?php foreach($kelas as $kls)  { ?>
+                        <option value="<?= $kls['nama_kelas'];?>">Kelas - <?= $kls['nama_kelas'];?></option>
+                        <?php } ?>
+                    </select>
                 </div>
 
                 <div class="form-group">

@@ -5,7 +5,7 @@
 <div class="card shadow mb-4">
 <div class="card-body">
 
-<form action="<?php echo base_url('Manager/Nilai/simpanDataNilai')?>" method="post">
+<form action="<?php echo base_url('Manager/Nilai/simpanDataNilai/'. $nis. '/'. $id_tahun)?>" method="post" enctype="multipart/form-data">
 <div class="form-group">
     <label for="tahun_ajaran">Tahun Ajaran</label>
     <input type="hidden" name="id_nilai" class="form-control" value="<?php echo $id_tahun; ?>">
@@ -42,17 +42,17 @@
 
 <div class="form-group">
     <label for="nilai_tugas">Nilai Tugas</label>
-    <input type="number" class="form-control" id="nilai_tugas" name="nilai_tugas" >
+    <input type="number" class="form-control" id="nilai_tugas" name="nilai_tugas" placeholder="Masukkan Nilai Tugas" >
 </div>
 
 <div class="form-group">
     <label for="nilai_uts">Nilai UTS</label>
-    <input type="number" class="form-control" id="nilai_uts" name="nilai_uts" >
+    <input type="number" class="form-control" id="nilai_uts" name="nilai_uts" placeholder="Masukkan Nilai UTS" >
 </div>
 
 <div class="form-group">
     <label for="nilai_uas">Nilai UAS</label>
-    <input type="number" class="form-control" id="nilai_uas" name="nilai_uas" >
+    <input type="number" class="form-control" id="nilai_uas" name="nilai_uas" placeholder="Masukkan Nilai UAS" >
     <?php
     // Perhitungan total nilai
     if(isset($_POST['nilai_tugas']) && isset($_POST['nilai_uts']) && isset($_POST['nilai_uas'])){
@@ -73,7 +73,14 @@
     <i class="fas fa-save"></i>
     Simpan
 </button>
-<?= anchor('Manager/Nilai/CariNilai/'.$nis.'/'.$id_tahun, '<div class="btn btn-warning"> <i class="fas fa-undo"></i> Kembali </div>') ?>
+
+<a href="<?php echo base_url('Manager/Nilai/DataNilai/'. $nis. '/' . $id_tahun); ?>" class="btn btn-warning">
+    <span class="icon text-white-50">
+        <i class="fas fa-undo"></i>
+    </span>
+    <span class="text">Kembali</span>
+</a>
+
 </form>
 </div>
 </div>

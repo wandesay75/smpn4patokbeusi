@@ -31,15 +31,24 @@ class ModelAbsensi extends CI_Model {
     return $this->db->get('user');
   }
   
-  public function getMuridbyKelas($id_absen)
+  public $table = 'data_absen';
+  public $id = 'id_absen';
+
+  public function get_by_id($id)
   {
-    $this->db->select('*');
-    $this->db->from($this->_table);
-    $this->db->join('murid', 'murid.nama_kelas=data_absen.nama_kelas');
-    $this->db->where('id_absen', $id_absen);
-    $query = $this->db->get();
-    return $query->result();
+    $this->db->where($this->id,$id);
+    return $this->db->get($this->table)->row();
   }
+
+  // public function getMuridbyKelas($id_absen)
+  // {
+  //   $this->db->select('*');
+  //   $this->db->from($this->_table);
+  //   $this->db->join('murid', 'murid.nama_kelas=data_absen.nama_kelas');
+  //   $this->db->where('id_absen', $id_absen);
+  //   $query = $this->db->get();
+  //   return $query->result();
+  // }
 
 //   public function get_murid_by_kelas($id_absen) {
 //     $this->db->where('nama_kelas', $id_absen);

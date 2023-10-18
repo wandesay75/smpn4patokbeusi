@@ -5,27 +5,23 @@
 <h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
 <div class="card shadow mb-4">
     <div class="card-body">
-        <a href="<?php echo base_url('Manager/AbsenMurid'); ?>" class="btn btn-primary btn-icon-split mb-3">
+        <a href="<?php echo base_url('Manager/AbsenMurid/DataAbsen/'. $nama_kelas. '/'. $id_tahun); ?>" class="btn btn-primary btn-icon-split mb-3">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-arrow-left"></i>
                                             </span>
                                             <span class="text">Kembali</span>
         </a>
-    <form action="<?php echo site_url('Manager/AbsenMurid/buatKelas'); ?>" method="post" enctype="multipart/form-data">
+    <form action="<?php echo site_url('Manager/AbsenMurid/buatKelas/'. $nama_kelas . '/'. $id_tahun); ?>" method="post" enctype="multipart/form-data">
         <table id="table" width="70%">
 
         <input type="hidden" name="id_user" value="<?php echo $this->session->userdata('id_user'); ?>">
+        <input type="hidden" name="id_tahun" value="<?php echo $id_tahun;  ?>">
 
           <tr>
             <td>
               <div class="form-group">
                 <label for="nama_kelas" class="text-info">Nama kelas <span class="text-info">:</span></label>
-                <select name="nama_kelas" class="form-control form-control-user" required>
-                  <option value="" disabled>--Pilih Kelas--</option>
-                  <?php foreach($kelas as $kls)  { ?>
-                  <option value="<?= $kls['nama_kelas'];?>"><?= $kls['nama_kelas'];?></option>
-                  <?php } ?>
-                </select>
+                <input type="text" name="nama_kelas" class="form-control form-control-user" value="<?php echo $nama_kelas; ?>" readonly>
               </div>
             </td>
           </tr>

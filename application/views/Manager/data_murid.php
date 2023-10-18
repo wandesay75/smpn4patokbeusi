@@ -2,18 +2,31 @@
  <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?></h1>
+<h1 class="h3 mb-4 text-gray-800"><?php echo $title; ?> <?php echo $nama_kelas; ?> - <?php echo $tahun_ajaran; ?> <?php echo $semester; ?></h1>
 
 <div class="card shadow mb-4">
                         <div class="card-body">
-                        <a href="<?php echo base_url('Manager/DataMurid/tambahMurid'); ?>" class="btn btn-primary btn-icon-split mb-3">
+                        <a href="<?php echo base_url('Manager/DataMurid'); ?>" class="btn btn-primary btn-icon-split mb-3">
+                                            <span class="icon text-white-50">
+                                                <i class="fas fa-arrow-left"></i>
+                                            </span>
+                                            <span class="text">Kembali</span>
+                        </a>
+                        <br>
+                        <a href="<?php echo base_url('Manager/DataMurid/tambahMurid/'. $nama_kelas.'/'.$id_tahun); ?>" class="btn btn-secondary btn-icon-split mb-3">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-user-plus"></i>
                                         </span>
                                         <span class="text">Tambah Murid</span>
                                     </a>
+                        <a href="<?php echo base_url('Manager/DataMurid/Cetak/'. $nama_kelas.'/'.$id_tahun); ?>" target="_blank" class="btn btn-success btn-icon-split mb-3">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-print"></i>
+                                        </span>
+                                        <span class="text">Cetak Data</span>
+                                    </a>
                             <div class="table-responsive">
-                            <?php echo $this->session->flashdata('message'); ?>
+                            <?= $this->session->flashdata('pesan'); ?>
                                 <table class="table table-bordered table-striped table-hover text-center" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -28,7 +41,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $id_murid = 1; foreach ($table as $murid) :?>
+                                        <?php $id_murid = 1; foreach ($data_murid as $murid) :?>
                                             <tr>
                                                 <td><?= $id_murid++ ?></td>
                                                 <td><?= $murid->nis ?></td>

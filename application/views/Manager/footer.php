@@ -221,7 +221,9 @@ var myBarChart = new Chart(ctx, {
   }
 });
 
-</scripT>
+</script>
+
+
 
 </body>
 
