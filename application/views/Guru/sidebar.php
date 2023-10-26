@@ -24,6 +24,12 @@
                     <span>Dashboard</span></a>
             </li>
 
+            <li class="nav-item <?php echo $this->uri->segment(2) == 'Nilai' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?php echo base_url('Guru/Nilai'); ?>">
+                    <i class="fas fa-warehouse"></i>
+                    <span>Data Nilai</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -37,6 +43,7 @@
                     <i class="fas fa-fw fa-tv"></i>
                     <span>Presensi Murid</span></a>
             </li>
+            
 
             <li class="nav-item <?php echo $this->uri->segment(2) == 'DataAbsen' ? 'active' : '' ?>">
                 <a class="nav-link" href="<?php echo base_url('Guru/DataAbsen'); ?>">
@@ -44,6 +51,7 @@
                     <span>Rekap Data Absensi</span></a>
             </li>
 
+            
 
             <hr class="sidebar-divider d-none d-md-block">
             <!-- Sidebar Toggler (Sidebar) -->
