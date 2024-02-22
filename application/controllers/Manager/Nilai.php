@@ -7,8 +7,8 @@ class Nilai extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('ModelMurid');
-        $this->load->model('NilaiModel'); // tambahkan ini jika belum dimuat
-        $this->load->model('ModelTahunAjaran'); // tambahkan ini jika belum dimuat
+        $this->load->model('NilaiModel');
+        $this->load->model('ModelTahunAjaran');
         
         if ($this->session->userdata('role') != 'admin'){
             redirect('auth');

@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
                         <div class="card-body">
-                        <a href="<?php echo base_url('Manager/AbsenMurid/'); ?>" class="btn btn-primary btn-icon-split mb-3">
+                        <a href="<?php echo base_url('Guru/AbsenMurid/'); ?>" class="btn btn-primary btn-icon-split mb-3">
                                         <span class="icon text-white-50">
                                             <i class="fas fa-arrow-left"></i>
                                         </span>
@@ -25,7 +25,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <form action="<?php echo site_url('Manager/AbsenMurid/submitAbsen/'. $nama_kelas. '/'. $id_tahun. '/'. $id_absen); ?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?php echo site_url('Guru/AbsenMurid/submitAbsen/'. $nama_kelas. '/'. $id_tahun. '/'. $id_absen); ?>" method="post" enctype="multipart/form-data">
                                             <tr>
                                                    
                                                 <?php foreach ($dataSubmit as $murid) :?>

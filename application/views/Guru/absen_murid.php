@@ -6,7 +6,7 @@
 
 <div class="card shadow mb-4">
                         <div class="card-body">
-                        <a href="<?php echo base_url('Manager/AbsenMurid/buatKelas/'. $nama_kelas. '/'. $id_tahun); ?>" class="btn btn-primary btn-icon-split mb-3">
+                        <a href="<?php echo base_url('Guru/AbsenMurid/buatKelas/'. $nama_kelas. '/'. $id_tahun); ?>" class="btn btn-primary btn-icon-split mb-3">
                                         <span class="icon text-white-50">
                                             <i class="far fa-calendar-plus"></i>
                                         </span>
@@ -32,9 +32,9 @@
                                                 <td><?= $murid->matapelajaran; ?></td>
                                                 <td><?= $murid->waktu_absen; ?></td>
                                                 <td>
-                                                <a href="<?php echo site_url('Manager/AbsenMurid/submitAbsen/'. $murid->id_absen); ?>" 
+                                                <a href="<?php echo site_url('Guru/AbsenMurid/submitAbsen/'. $murid->id_absen); ?>" 
                                 class="btn btn-sm btn-warning"><i class="fas fa-eye"></i></a>
-                                <a href="<?php echo site_url('Manager/AbsenMurid/hapus/'. $murid->id_absen); ?>" 
+                                <a href="<?php echo site_url('Guru/AbsenMurid/hapus/'. $murid->id_absen); ?>" 
                                 class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapusnya ?')"><i class="fas fa-trash"></i></a>
                                                 </td>
                                             </tr>
